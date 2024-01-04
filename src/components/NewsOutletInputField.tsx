@@ -1,6 +1,6 @@
 const NewsOutletInputField = () => {
   return (
-    <select className='form-select' multiple aria-label='Multiple select news outlet'>
+    <select className='form-select mb-5' multiple aria-label='Multiple select news outlet'>
       <option selected value="Axios">Axios</option>
       <option value="Fox News">Fox News</option>
       <option value="NYT">NYT</option>

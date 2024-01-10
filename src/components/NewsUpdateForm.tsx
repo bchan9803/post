@@ -2,6 +2,7 @@ import EmailInputField from "./EmailInputField"
 import SubmitBtn from "./SubmitBtn"
 import NewsOutletInputField from './NewsOutletInputField';
 
+
 const NewsUpdateForm = () => {
   return (
     <form className='border border-light-subtle w-50 my-0 mx-auto p-4'>

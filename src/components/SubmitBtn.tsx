@@ -1,6 +1,14 @@
+import { main } from "../scripts/SendEmail"
+
 const openAlert = () => {
-  // alert("Email updates have been activated.")
+  // sendMail(transporter, mail)
+
+  main().catch(console.error);
+
+
+  alert("Email updates have been activated.")
   document.querySelector('.alert').style.display = 'block'
+
 }
 
 const SubmitBtn = () => {

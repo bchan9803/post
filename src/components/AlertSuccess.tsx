@@ -5,7 +5,7 @@ const AlertSuccess = () => {
   return (
     <div className="alert alert-success" role='alert'>
       <AlertCloseBtn />
-      Email successfully added for news updates!
+      Email successfully added for future news updates!
     </div>
   )
 }

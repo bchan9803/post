@@ -2,13 +2,13 @@
 // import NewsOutletInputField from "../components/NewsOutletInputField"
 // import SubmitBtn from "../components/SubmitBtn"
 
-import NewsUpdateForm from "../components/NewsUpdateForm"
+import NewsForm from "../components/NewsForm"
 
 
 const Home = () => {
   return (
     <>
-      <NewsUpdateForm />
+      <NewsForm />
     </>
   )
 }

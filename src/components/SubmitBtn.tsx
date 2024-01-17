@@ -1,14 +1,18 @@
-import { main } from "../scripts/SendEmail"
+// import sendEmail from "../scripts/sendEmail.tsx"
+// import {transporter, sendMail, options} from "../scripts/sendEmail"
 
 const openAlert = () => {
-  // sendMail(transporter, mail)
+  // try {
+  //   sendEmail()
+  // } catch (error) {
+  //   console.error('not working')
+  //   console.error(error);
+  // }
 
-  main().catch(console.error);
-
+  // transporter.sendMail(options);
 
   alert("Email updates have been activated.")
   document.querySelector('.alert').style.display = 'block'
-
 }
 
 const SubmitBtn = () => {

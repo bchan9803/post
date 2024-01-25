@@ -1,44 +1,46 @@
+// import { useState } from "react";
+
+const NewsOption = (props) => {
+  // const [newsOutlet, setNewsOutlet] = useState("")
+
+  return (
+    <div className="form-check">
+      <input 
+        type="radio" 
+        className="form-check-input" 
+        name='news-outlet' 
+        id={props.newsOptionID}
+        value={props.newsOptionVal}
+        // onChange={(e) => setNewsOutlet(e.target.value)}
+      />
+      <label htmlFor={props.newsOptionVal} className="form-check-label">{props.newsOptionLabel}</label>
+    </div>
+  )
+}
+
 const NewsOutletInputField = () => {
 
   return (
-    <div className='mb-5'>
+    <section className='mb-5'>
       {/* Axios */}
-      <div className="form-check">
-        <input 
-          type="radio" 
-          className="form-check-input" 
-          name='news-outlet' 
-          id='axios'
-          value='axios' 
-          onChange={handleNewsOutlet}
-        />
-        <label htmlFor="axios" className="form-check-label">Axios</label>
-      </div>
+      <NewsOption 
+        newsOptionID='axios'
+        newsOptionVal='axios'
+        newsOptionLabel='Axios'
+      />
       {/* BBC News */}
-      <div className="form-check">
-        <input 
-          type="radio" 
-          className="form-check-input" 
-          name='news-outlet' 
-          id='bbc'
-          value='bbc' 
-          onChange={handleNewsOutlet}
-        />
-        <label htmlFor="bbc" className="form-check-label">BBC News</label>
-      </div>
-      {/* NYT */}
-      <div className="form-check">
-        <input 
-          type="radio" 
-          className="form-check-input" 
-          name='news-outlet' 
-          id='nyt'
-          value='nyt' 
-          onChange={handleNewsOutlet}
-        />
-        <label htmlFor="nyt" className="form-check-label">NYT</label>
-      </div>
-    </div>
+      <NewsOption 
+        newsOptionID='bbc'
+        newsOptionVal='bbc'
+        newsOptionLabel='BBC News'
+      />
+      {/* New York Times */}
+      <NewsOption 
+        newsOptionID='nyt'
+        newsOptionVal='nyt'
+        newsOptionLabel='New York Times'
+      />
+    </section>
   )
 }
 

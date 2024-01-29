@@ -21,7 +21,7 @@ const NewsForm = () => {
     )
   }
   
-  const handleSubmit =  (e: Event) => {
+  const handleSubmit =  (e) => {
     // sends email details to nodemailer api in '/src/services/nodemailer api/ app.js'
   
     // Plan

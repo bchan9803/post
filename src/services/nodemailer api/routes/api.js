@@ -62,7 +62,7 @@ router.get('/fetchUser', async (req, res) => {
 
     for (let user of response) {
       try {
-        const postRes = await axios.post("http://localhost:3000/api/sendEmail", {
+        await axios.post("http://localhost:3000/api/sendEmail", {
           emailRecipient: user.email,
           emailSubject: `POST! | New article from ${user.newsOutlet}`,
           emailText: `Article title: "${await fetchNewsHeadline(user.newsOutlet)}"`

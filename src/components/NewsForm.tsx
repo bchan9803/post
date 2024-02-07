@@ -28,11 +28,10 @@ const NewsForm = () => {
 
     // adds user info to postDB (MongoDB)
     try {
-      const res = await axios.post("http://localhost:3000/user/addUser", {
+      await axios.post("http://localhost:3000/user/addUser", {
         newsOutlet: newsOutlet,
         email: email
       });
-      res;
       console.log('user added!');
     }
     catch (err) {

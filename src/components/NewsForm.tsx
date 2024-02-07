@@ -32,6 +32,7 @@ const NewsForm = () => {
         newsOutlet: newsOutlet,
         email: email
       });
+      res;
       console.log('user added!');
     }
     catch (err) {

@@ -4,16 +4,19 @@
   margin: 0;
   padding: 0;
 }
+
 button {
   border: 0;
   background-color: inherit;
   margin: 0;
   padding: 0;
 }
+
 a {
   text-decoration: none;
   color: inherit;
 }
+
 /*  */
 
 /* for Alert modals */
@@ -21,3 +24,8 @@ a {
   display: none;
 }
 
+@media (min-width: 900px) {
+  form {
+    width: 50%;
+  }
+}

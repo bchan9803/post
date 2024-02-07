@@ -1,45 +1,21 @@
 import express from 'express';
-import nodemailer from 'nodemailer';
+import mongoose from 'mongoose';
+import { UserRouter } from './routes/users.js';
+import { APIRouter } from './routes/api.js';
+
 const app = express();
 
 app.use(express.json());
 
-const port = 3000;
+mongoose.connect("mongodb+srv://449studios:4949PostPostMan@users.abbiwhk.mongodb.net/postDB");
+// mongoose.connect(`${process.env.REACT_MONGODB_CONNECTION_STRING}`);
 
-app.post('/api/email', async (req, res) => {
-  const transporter = nodemailer.createTransport({
-    service: "gmail",
-    host: "smtp.gmail.com",
-    post: 587,
-    secure: false,
-    auth: {
-      user: "official449studios@gmail.com",
-      pass: "lquv vkoh utjx ukty "
-    }
-  });
-  let message = {
-    "from": "official449studios@gmail.com",
-    "to": "undefined",
-    "subject": "undefined subject",
-    "text": "undefined text",
-  };
+// const PORT = import.meta.env.VITE_PORT;
+const PORT = 3000;
 
-  const { emailRecipient, emailSubject, emailText } = req.body;
+app.use('/user', UserRouter);
+app.use('/api', APIRouter);
 
-  message.to = emailRecipient;
-  message.subject = emailSubject;
-  message.text = emailText;
-
-  const r = await transporter.sendMail(message);
-
-  try {
-    res.send(r);
-  } catch (error) {
-    console.log(error);
-  }
-  
-});
-
-app.listen(port, () => {
-  console.log('express is listening at port ', port);
+app.listen(PORT, () => {
+  console.log('express is listening at PORT ', PORT);
 });

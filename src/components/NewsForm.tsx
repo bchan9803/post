@@ -44,6 +44,15 @@ const NewsForm = () => {
     }
   };
 
+
+  const testSendMail = async () => {
+    try {
+      await axios.get(`${currUrl}/api/fetchUser`);
+    }
+    catch (err) {
+      console.error(err);
+    }
+  };
   // document.querySelector('.alert').style.display = 'block'
 
   return (
@@ -96,6 +105,9 @@ const NewsForm = () => {
       <button type='submit' className='btn btn-primary'>
         Submit
       </button>
+
+      {/* test send email btn */}
+      <button type='button' className="btn" onClick={testSendMail()}>send mail</button>
     </form>
   );
 };

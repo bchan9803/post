@@ -54,15 +54,24 @@ const fetchNewsHeadline = async (newsOutlet) => {
   }
 };
 
+
+
 // sends news updates to the user
 router.get('/fetchUser', async (req, res) => {
+  // const fullUrl = `${req.protocol}://${req.get('host')}${req.originalUrl}`;
+
+  const currUrl = `${req.protocol}://${req.get('host')}`;
+  // console.log('fullURL: ', fullUrl);
+
   try {
     const response = await UserModel.find({});
     res.json(response);
 
     for (let user of response) {
       try {
-        await axios.post("http://localhost:3000/api/sendEmail", {
+        // await axios.post("http://localhost:3000/api/sendEmail", {
+        // await axios.post("http://127.0.0.1:3000/api/sendEmail", {
+        await axios.post(`${currUrl}/api/sendEmail`, {
           emailRecipient: user.email,
           emailSubject: `POST! | New article from ${user.newsOutlet}`,
           emailText: `Article title: "${await fetchNewsHeadline(user.newsOutlet)}"`
@@ -71,6 +80,7 @@ router.get('/fetchUser', async (req, res) => {
         res.json(err);
       }
     }
+
   } catch (err) {
     res.json(err);
   }

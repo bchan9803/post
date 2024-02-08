@@ -5,6 +5,11 @@ const NewsForm = () => {
   const [newsOutlet, setNewsOutlet] = useState('');
   const [email, setEmail] = useState('');
 
+  // http: '//' localhost ':' apiportnum '/user/addUser'
+  const API_PORT_NUM = 3000;
+  // url of current page
+  const currUrl = window.location.protocol + '//' + window.location.hostname + ':' + API_PORT_NUM;
+
   const NewsOption = (props) => {
     return (
       <div className="form-check">
@@ -28,7 +33,7 @@ const NewsForm = () => {
 
     // adds user info to postDB (MongoDB)
     try {
-      await axios.post("http://localhost:3000/user/addUser", {
+      await axios.post(`${currUrl}/user/addUser`, {
         newsOutlet: newsOutlet,
         email: email
       });

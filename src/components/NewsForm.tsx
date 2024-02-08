@@ -46,7 +46,18 @@ const NewsForm = () => {
   };
 
 
-  const testSendMail = async () => {
+  // const testSendMail = async () => {
+  //   try {
+  //     await axios.get(`${CURR_URL}/api/fetchUser`);
+  //   }
+  //   catch (err) {
+  //     console.error(err);
+  //   }
+  // };
+
+
+  // sends updates once a day
+  const dailyFunction = async () => {
     try {
       await axios.get(`${CURR_URL}/api/fetchUser`);
     }
@@ -54,7 +65,28 @@ const NewsForm = () => {
       console.error(err);
     }
   };
-  // document.querySelector('.alert').style.display = 'block'
+
+  function triggerDailyFunction() {
+    // Set the time for 24 hours from now
+    const now = new Date();
+    const tomorrow = new Date(now);
+    tomorrow.setDate(now.getDate() + 1);
+    tomorrow.setHours(0, 0, 0, 0);
+
+    const timeUntilTomorrow = tomorrow.valueOf() - now.valueOf();
+
+    // Set a timeout to trigger the function
+    setTimeout(() => {
+      dailyFunction();
+
+      // Set up the next trigger for the next day
+      triggerDailyFunction();
+    }, timeUntilTomorrow);
+  }
+
+  // Initial call to start the process
+  triggerDailyFunction();
+
 
   return (
     <form
@@ -108,7 +140,7 @@ const NewsForm = () => {
       </button>
 
       {/* test send email btn */}
-      <button type='button' className="btn" onClick={testSendMail}>send mail</button>
+      {/* <button type='button' className="btn" onClick={testSendMail}>send mail</button> */}
     </form>
   );
 };

@@ -1,5 +1,19 @@
 # other files
 .env
+discard
+# for api folder
+services
+Users.js
+users.js
+api.js
+app.js
+
+
+
+
+
+
+
 
 # Logs
 logs

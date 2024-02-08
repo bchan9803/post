@@ -5,10 +5,8 @@ const NewsForm = () => {
   const [newsOutlet, setNewsOutlet] = useState('');
   const [email, setEmail] = useState('');
 
-  // http: '//' localhost ':' apiportnum '/user/addUser'
-  const API_PORT_NUM = 3000;
-  // url of current page
-  const currUrl = window.location.protocol + '//' + window.location.hostname + ':' + API_PORT_NUM;
+  // url of post! api
+  const CURR_URL = "https://post-backend-j0fd.onrender.com";
 
   const NewsOption = (props) => {
     return (
@@ -33,21 +31,24 @@ const NewsForm = () => {
 
     // adds user info to postDB (MongoDB)
     try {
-      await axios.post(`${currUrl}/user/addUser`, {
+      await axios.post(`${CURR_URL}/user/addUser`, {
         newsOutlet: newsOutlet,
         email: email
       });
       console.log('user added!');
+
+      document.querySelector('.alert-success').style.display = 'block';
     }
     catch (err) {
       console.error(err);
+      document.querySelector('.alert-fail').style.display = 'block';
     }
   };
 
 
   const testSendMail = async () => {
     try {
-      await axios.get(`${currUrl}/api/fetchUser`);
+      await axios.get(`${CURR_URL}/api/fetchUser`);
     }
     catch (err) {
       console.error(err);
@@ -107,7 +108,7 @@ const NewsForm = () => {
       </button>
 
       {/* test send email btn */}
-      <button type='button' className="btn" onClick={ testSendMail}>send mail</button>
+      <button type='button' className="btn" onClick={testSendMail}>send mail</button>
     </form>
   );
 };

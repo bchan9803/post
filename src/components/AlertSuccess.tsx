@@ -1,13 +1,18 @@
-import AlertCloseBtn from "./AlertCloseBtn"
+const AlertCloseBtn = () => {
+  // script to close the alert modal
+  return (
+    <button type='button' className='btn fs-5' onClick={() => document.querySelector('.alert-success').style.display = 'none'}>x</button>
+  );
+};
 
 // alert modal for successful email registration
 const AlertSuccess = () => {
   return (
-    <div className="alert alert-success" role='alert'>
+    <div className="alert-success alert alert-success" role='alert'>
       <AlertCloseBtn />
-      Email successfully added for future news updates!
+      Email successfully added for future news updates! (updates should come once a day)
     </div>
-  )
-}
+  );
+};
 
-export default AlertSuccess
+export default AlertSuccess;

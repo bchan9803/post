@@ -37,11 +37,11 @@ const NewsForm = () => {
       });
       console.log('user added!');
 
-      document.querySelector('.alert-success').style.display = 'block';
+      document.querySelector<HTMLElement>('.alert-success').style.display = 'block';
     }
     catch (err) {
       console.error(err);
-      document.querySelector('.alert-fail').style.display = 'block';
+      document.querySelector<HTMLElement>('.alert-fail').style.display = 'block';
     }
   };
 

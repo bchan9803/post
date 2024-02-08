@@ -107,7 +107,7 @@ const NewsForm = () => {
       </button>
 
       {/* test send email btn */}
-      <button type='button' className="btn" onClick={testSendMail()}>send mail</button>
+      <button type='button' className="btn" onClick={ testSendMail}>send mail</button>
     </form>
   );
 };
